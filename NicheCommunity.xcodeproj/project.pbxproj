@@ -39,12 +39,20 @@
 		E10030001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E10030000; };
 		T1A001 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = T1F001; };
 		PP0001 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = PP0002; };
+		UINI001 /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = UINI002; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		T1P001 = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E50000000;
+			proxyType = 1;
+			remoteGlobalIDString = E40000000;
+			remoteInfo = NicheCommunity;
+		};
+		UINI014 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E50000000 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E40000000;
 			remoteInfo = NicheCommunity;
@@ -86,6 +94,8 @@
 		T1F001 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		PP0002 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		T1R001 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NicheCommunityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		UINI002 /* ScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
+		UINI003 /* NicheCommunityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NicheCommunityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +113,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		UINI012 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -112,6 +129,7 @@
 				E30001000 /* NicheCommunity */,
 				T1G001 /* NicheCommunityTests */,
 				E30099000 /* Products */,
+				UINI004 /* NicheCommunityUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +138,7 @@
 			children = (
 				E10000000 /* NicheCommunity.app */,
 				T1R001 /* NicheCommunityTests.xctest */,
+				UINI003 /* NicheCommunityUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -274,6 +293,14 @@
 			path = NicheCommunityTests;
 			sourceTree = "<group>";
 		};
+		UINI004 /* NicheCommunityUITests */ = {
+			isa = PBXGroup;
+			children = (
+				UINI002 /* ScreenshotTests.swift */,
+			);
+			path = NicheCommunityUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,6 +338,23 @@
 			productReference = T1R001;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		UINI010 /* NicheCommunityUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = UINI020;
+			buildPhases = (
+				UINI011 /* Sources */,
+				UINI012 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				UINI013 /* PBXTargetDependency */,
+			);
+			name = NicheCommunityUITests;
+			productName = NicheCommunityUITests;
+			productReference = UINI003 /* NicheCommunityUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -346,6 +390,7 @@
 			targets = (
 				E40000000 /* NicheCommunity */,
 				T1N001 /* NicheCommunityTests */,
+				UINI010 /* NicheCommunityUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -407,6 +452,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		UINI011 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				UINI001 /* ScreenshotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -414,6 +467,11 @@
 			isa = PBXTargetDependency;
 			target = E40000000;
 			targetProxy = T1P001;
+		};
+		UINI013 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E40000000 /* NicheCommunity */;
+			targetProxy = UINI014 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -627,6 +685,42 @@
 			};
 			name = Release;
 		};
+		UINI021 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.entangle.nichecommunity.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NicheCommunity;
+			};
+			name = Debug;
+		};
+		UINI022 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.entangle.nichecommunity.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NicheCommunity;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -653,6 +747,15 @@
 			buildConfigurations = (
 				T1BC01,
 				T1BC02,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		UINI020 /* Build configuration list for PBXNativeTarget "NicheCommunityUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				UINI021 /* Debug */,
+				UINI022 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

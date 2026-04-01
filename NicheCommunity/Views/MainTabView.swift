@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @EnvironmentObject var premiumService: PremiumService
-
     var body: some View {
         TabView {
             NavigationStack {

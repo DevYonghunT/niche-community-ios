@@ -10,12 +10,9 @@ import SwiftData
 
 @main
 struct NicheCommunityApp: App {
-    @StateObject private var premiumService = PremiumService()
-
     var body: some Scene {
         WindowGroup {
             MainTabView()
-                .environmentObject(premiumService)
                 .preferredColorScheme(.dark)
         }
         .modelContainer(for: [Channel.self, Post.self, Comment.self])

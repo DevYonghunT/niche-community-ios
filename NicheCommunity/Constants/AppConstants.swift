@@ -2,15 +2,6 @@ import SwiftUI
 
 // MARK: - 앱 전역 상수
 enum AppConstants {
-    /// 무료 사용자 채널 참여 제한 수
-    static let freeChannelLimit: Int = 3
-
-    /// 프리미엄 월간 구독 가격 표시 문자열
-    static let premiumMonthlyPrice: String = "$2.99"
-
-    /// 프리미엄 월간 구독 상품 ID
-    static let premiumProductID: String = "com.entangle.nichecommunity.premium.monthly"
-
     /// 앱 이름
     static let appName: String = "Niche Community"
 }

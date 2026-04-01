@@ -21,9 +21,6 @@ final class FeedViewModel: ObservableObject {
 
     // MARK: - 의존성
 
-    /// 프리미엄 서비스 (가입 제한 확인용)
-    var premiumService: PremiumService?
-
     /// SwiftData 모델 컨텍스트
     var modelContext: ModelContext?
 
@@ -58,7 +55,6 @@ final class FeedViewModel: ObservableObject {
     // MARK: - 초기화
 
     /// FeedViewModel 초기화
-    /// - Parameter premiumService: 프리미엄 상태 확인 서비스
     init() {}
 
     // MARK: - 메서드
@@ -82,28 +78,12 @@ final class FeedViewModel: ObservableObject {
     }
 
     /// 채널 가입/탈퇴 토글
-    /// 무료 사용자는 가입 채널 수 제한이 있다
     /// - Parameter channel: 토글할 채널
     func toggleJoinChannel(_ channel: Channel) {
         guard let index = channels.firstIndex(where: { $0.id == channel.id }) else {
             return
         }
 
-        // 이미 가입된 채널이면 탈퇴 처리
-        if channels[index].isJoined {
-            channels[index].isJoined = false
-            return
-        }
-
-        // 가입 시 프리미엄 상태에 따른 채널 수 제한 확인
-        let currentJoinedCount = joinedChannels.count
-        let status = premiumService?.premiumStatus ?? PremiumStatus(isActive: false)
-        guard status.canJoinMoreChannels(currentCount: currentJoinedCount) else {
-            // 무료 사용자 채널 가입 제한 초과
-            Logger(subsystem: "com.entangle.nichecommunity", category: "Feed").error(" 채널 가입 제한 초과 (현재: \(currentJoinedCount)개)")
-            return
-        }
-
-        channels[index].isJoined = true
+        channels[index].isJoined.toggle()
     }
 }

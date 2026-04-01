@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct CommunityFeedView: View {
-    @EnvironmentObject var premiumService: PremiumService
     @StateObject private var viewModel = FeedViewModel()
     @Environment(\.modelContext) private var modelContext
 
@@ -75,7 +74,6 @@ struct CommunityFeedView: View {
         .navigationTitle("커뮤니티")
         .toolbarColorScheme(.dark, for: .navigationBar)
         .onAppear {
-            viewModel.premiumService = premiumService
             viewModel.setModelContext(modelContext)
             Task { await viewModel.loadChannels() }
         }
